@@ -1,11 +1,15 @@
-#images-container,
-p {
-	cursor: grab;
-}
-
-
-p {
+/* #images-container {
 	margin: 0 auto;
 	text-align: center;
 	font-size: 20px;
-}
+	cursor: pointer;
+} */
+
+/* #subscription-modal {
+	display: none;
+} */
+/* 
+footer {
+	font-size: 16px;
+	text-align: left;
+} */
