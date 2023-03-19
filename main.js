@@ -71,7 +71,8 @@ const bannerImg = document.getElementById('banner-image');
 // Функція для додавання зображення та опису до контейнеру
 function addImageToContainer(image) {
 	const imageCol = document.createElement('div');
-	imageCol.classList.add('col-md-4', 'my-5');
+	imageCol.classList.add('col-md-4', 'my-5', 'box');
+	imageCol.classList.add(image.classname);
 
 	const img = document.createElement('img');
 	img.src = image.src;
@@ -178,9 +179,33 @@ document.querySelector('div.filter-btn').addEventListener('click', (event) => {
 	let filterProducts = document.querySelectorAll('.box');
 
 	Array.from(filterProducts).forEach(elem => {
-		elem.classList.remove('hide');
+		elem.classList.remove('d-none');
 		if (!elem.classList.contains(filterClass) && filterClass !== 'all') {
-			elem.classList.add('hide');
+			elem.classList.add('d-none');
 		}
 	});
 });
+
+let buttons = document.querySelectorAll('.btn-outline-secondary');
+
+function handleClick(event) {
+	let target = event.target;
+
+	if (!target.classList.contains('active')) {
+		buttons.forEach(function (button) {
+			button.classList.remove('active');
+		});
+
+		target.classList.add('active');
+	}
+}
+
+buttons.forEach(function (button) {
+	button.addEventListener('click', handleClick);
+});
+
+
+buttons.forEach(function (button) {
+	button.addEventListener('click', handleClick);
+});
+

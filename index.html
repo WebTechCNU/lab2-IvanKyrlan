@@ -7,19 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-	<link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between position-fixed w-100 top-0">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
 			<div class="container">
 				<a class="navbar-brand" href="./index.html"><strong>IVAN's STORE</strong></a>
-				<!-- <form class="d-flex">
-				<input class="form-control me-2" type="search" placeholder="Що бажаєте знайти?" aria-label="Search">
-				<button class="btn btn-outline-success" type="submit">Пошук</button>
-			</form> -->
-
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -28,7 +22,7 @@
 				<div class="collapse navbar-collapse justify-content-center text-uppercase flex-grow-0" id="navbarNav">
 					<ul class="navbar-nav d-flex align-items-center">
 						<li class="nav-item">
-							<a class="nav-link" href="./pages/about.html">Про нас</a>
+							<a class="nav-link" href="../pages/about.html">Про нас</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Товари</a>
@@ -48,27 +42,35 @@
 	<main>
 
 		<section>
-			<div class="container text text-center p-5 mt-5">
-				<img src="/Photos/Main Photo.jpeg " alt="Can't load the photo" id="banner-image"
+			<div class="container text-center">
+				<img src="../Photos/Main Photo.jpeg" alt="Can't load the photo" id="banner-image"
 					class="rounded mx-auto w-75">
 			</div>
 		</section>
 
 		<section>
-			<div class="container">
+			<div class="container mb-5">
 				<div class="row">
 					<div class="col text-center">
-						<button class="btn btn-primary text-uppercase m-2" id="show-images-btn">Показати
+						<button class="btn btn-primary text-uppercase m-3 p-2" id="show-images-btn">Показати
 							товари</button>
 					</div>
 				</div>
 
-				<div class="filter-btn">
-					<div class=" text-center d-none" id="filter-btn">
-						<button data-f=" all" class="btn btn-secondary m-2">Всі</button>
-						<button data-f="male" class="btn m-2">Для нього</button>
-						<button data-f="female" class="btn m-2">Для неї</button>
-					</div>
+				<div class="filter-btn text-center d-none" id="filter-btn">
+					<ul class="list-unstyled mt-4">
+						<button class="btn btn-outline-secondary active">
+							<li data-f="all">Всі</li>
+						</button>
+
+						<button class="btn btn-outline-secondary">
+							<li data-f="male">Для нього</li>
+						</button>
+
+						<button class="btn btn-outline-secondary">
+							<li data-f="female">Для неї</li>
+						</button>
+					</ul>
 				</div>
 
 				<div class="row text-center h5 justify-content-center" id="images-container">
