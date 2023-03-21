@@ -10,7 +10,7 @@ const images = [
 	{
 		src: './Photos/Photo-2.jpeg',
 		alt: 'Товар 2',
-		description: 'Опис зображення 2',
+		description: 'Куртка жіноча',
 		price: '490 UAH',
 		classname: 'female'
 	},
@@ -18,47 +18,47 @@ const images = [
 	{
 		src: './Photos/Photo-3.jpeg',
 		alt: 'Товар 3',
-		description: 'Опис зображення 3',
+		description: 'Куртка чоловіча',
 		price: '790 UAH',
 		classname: 'male'
 	},
 
 	{
-		src: './Photos/Photo-3.jpeg',
+		src: './Photos/Photo-4.jpeg',
 		alt: 'Товар 4',
-		description: 'Опис зображення 3',
+		description: 'Штани чоловічі',
 		price: '690 UAH',
 		classname: 'male'
 	},
 
 	{
-		src: './Photos/Photo-3.jpeg',
+		src: './Photos/Photo-5.jpeg',
 		alt: 'Товар 5',
-		description: 'Опис зображення 3',
+		description: 'Джинси жіночі',
 		price: '350 UAH',
 		classname: 'female'
 	},
 
 	{
-		src: './Photos/Photo-3.jpeg',
+		src: './Photos/Photo-6.jpeg',
 		alt: 'Товар 6',
-		description: 'Опис зображення 3',
+		description: 'Кеди чоловічі',
 		price: '990 UAH',
 		classname: 'male'
 	},
 
 	{
-		src: './Photos/Photo-3.jpeg',
+		src: './Photos/Photo-7.jpeg',
 		alt: 'Товар 7',
-		description: 'Опис зображення 3',
+		description: 'Джинсовка жіноча',
 		price: '550 UAH',
-		classname: 'male'
+		classname: 'female'
 	},
 
 	{
-		src: './Photos/Photo-3.jpeg',
-		alt: 'Товар 7',
-		description: 'Опис зображення 3',
+		src: './Photos/Photo-8.jpeg',
+		alt: 'Товар 8',
+		description: 'Кросівки жіночі',
 		price: '1990 UAH',
 		classname: 'female'
 	}
@@ -77,14 +77,16 @@ function addImageToContainer(image) {
 	const img = document.createElement('img');
 	img.src = image.src;
 	img.alt = image.alt;
-	img.classList.add('w-100');
+	img.classList.add('w-75');
 
 	const description = document.createElement('p');
 	description.textContent = image.description;
 	description.classList.add('d-none');
+	description.classList.add('m-3');
 
 	const price = document.createElement('p');
 	price.textContent = image.price;
+	price.classList.add('p-3');
 
 	const button = document.createElement('button');
 	button.innerHTML = 'Купити';
@@ -110,17 +112,29 @@ function addImageToContainer(image) {
 	button.addEventListener('click', function () {
 		alert('Товар успішно додано в кошик!');
 	});
-
-
 }
 
 const filterButtons = document.getElementById('filter-btn');
 const footer = document.getElementById('footer');
+const goodsBtn = document.getElementById('goodsBtn');
+
 
 showImagesBtn.addEventListener('click', function () {
 	showImagesBtn.classList.add('d-none');
 	bannerImg.classList.add('d-none');
-	footer.classList.remove('position-fixed');
+	footer.classList.remove('position-absolute');
+
+	filterButtons.classList.remove('d-none');
+	images.forEach(function (image) {
+		addImageToContainer(image);
+	});
+});
+
+goodsBtn.addEventListener('click', function () {
+	showImagesBtn.classList.add('d-none');
+	bannerImg.classList.add('d-none');
+	footer.classList.remove('position-absolute');
+
 	filterButtons.classList.remove('d-none');
 	images.forEach(function (image) {
 		addImageToContainer(image);
@@ -148,12 +162,15 @@ let timerMessage = document.getElementById('timer-message')
 let timerElement = document.getElementById('timer');
 let seconds = 15;
 
+//Кнопка Уверх
+const btnUp = document.getElementById('btnUp');
+
 // Вікно з рекламою
 window.onscroll = function () { scrollFunction() };
 function scrollFunction() {
 	let hasSeenAd = localStorage.getItem("hasSeenAd");
 
-	if ((!hasSeenAd || hasSeenAd !== "true") && document.documentElement.scrollTop > 1300) {
+	if ((!hasSeenAd || hasSeenAd !== "true") && document.documentElement.scrollTop > 1000) {
 		advertismentModal.show();
 		localStorage.setItem("hasSeenAd", "true");
 
@@ -168,6 +185,21 @@ function scrollFunction() {
 			}
 		}, 1000);
 	}
+
+	if (document.documentElement.scrollTop > 500) {
+		btnUp.classList.remove('d-none');
+	}
+	else {
+		btnUp.classList.add('d-none');
+	}
+
+	//Плавна анімація переходу догори
+	btnUp.addEventListener('click', function () {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	});
 }
 
 // Фільтри
@@ -186,6 +218,7 @@ document.querySelector('div.filter-btn').addEventListener('click', (event) => {
 	});
 });
 
+//Кнопки для фільтрів
 let buttons = document.querySelectorAll('.btn-outline-secondary');
 
 function handleClick(event) {
@@ -209,3 +242,6 @@ buttons.forEach(function (button) {
 	button.addEventListener('click', handleClick);
 });
 
+
+
+// window.onscroll = function () {

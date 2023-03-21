@@ -25,10 +25,10 @@
 							<a class="nav-link" href="../pages/about.html">Про нас</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Товари</a>
+							<a class="nav-link" href="#" id="goodsBtn">Товари</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Контакти</a>
+							<a class="nav-link" href="../pages/contact.html">Контакти</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#"><i class="bi bi-bag" style="font-size: 26px;"></i></a>
@@ -40,19 +40,20 @@
 	</header>
 
 	<main>
+		<div class="container text-center">
+			<img src="../Photos/Main Photo.jpeg" alt="Can't load the photo" id="banner-image" class="rounded m-3 w-75">
+		</div>
+
+		<button class="btn btn-primary back-to-top position-fixed d-none" type="button" id="btnUp" style="bottom: 50px;
+      right: 20px;">
+			<i class="bi bi-arrow-up-circle"></i> Уверх
+		</button>
 
 		<section>
-			<div class="container text-center">
-				<img src="../Photos/Main Photo.jpeg" alt="Can't load the photo" id="banner-image"
-					class="rounded mx-auto w-75">
-			</div>
-		</section>
-
-		<section>
-			<div class="container mb-5">
+			<div class="container mb-5" id="goods">
 				<div class="row">
 					<div class="col text-center">
-						<button class="btn btn-primary text-uppercase m-3 p-2" id="show-images-btn">Показати
+						<button class="btn btn-primary text-uppercase m-2" id="show-images-btn">Показати
 							товари</button>
 					</div>
 				</div>
@@ -64,11 +65,11 @@
 						</button>
 
 						<button class="btn btn-outline-secondary">
-							<li data-f="male">Для нього</li>
+							<li data-f="male">Чоловіче</li>
 						</button>
 
 						<button class="btn btn-outline-secondary">
-							<li data-f="female">Для неї</li>
+							<li data-f="female">Жіноче</li>
 						</button>
 					</ul>
 				</div>
@@ -123,8 +124,8 @@
 		</div>
 	</main>
 
-	<footer class="bg-dark text-light py-3 bottom-0 w-100 position-fixed" id="footer">
-		<div class="container">
+	<footer class="bg-dark text-light py-3 bottom-0 w-100 position-absolute" id="footer">
+		<div class="container-fluid">
 			<div class="row justify-content-center">
 				<div class="col-md-3 col-sm-6 mb-3 mb-md-0 align-self-center">
 					<a class="navbar-brand" href="#"><strong>IVAN's STORE</strong></a>
